@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blackjack Game</title>
+    <!-- Include your CSS styles here -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Blackjack Game</h1>
+    
+    <!-- Display player's balance and allow them to place a bet -->
+    <div class="balance-container">
+        <p>Balance: <span id="playerBalance">$1000.00</span></p>
+        <button id="decreaseBet">-</button>
+        <input type="number" id="betAmount" min="10" max="1000000" step="5" value="10" required>
+        <button id="increaseBet">+</button>
+        <button id="placeBet">Place Bet</button>
+    </div>
+
+    <!-- Display player's and dealer's hands with card images -->
+    <div class="hands-container">
+        <div class="player-hand">
+            <h2>Your Hand</h2>
+            <div id="playerCards"></div>
+        </div>
+        <div class="dealer-hand">
+            <h2>Dealer's Hand</h2>
+            <div id="dealerCards"></div>
+        </div>
+    </div>
+
+    <!-- Display game result and action buttons (Hit and Stand) -->
+    <div class="game-result">
+        <p id="gameMessage"></p>
+        <button id="hitButton" disabled>Hit</button>
+        <button id="standButton" disabled>Stand</button>
+    </div>
+
+    <!-- Include your JavaScript for card images here -->
+    <script>
+        // JavaScript code for card images and game logic
+        // You can place this code in an external .js file if preferred
+
+        // Function to create a card image URL based on card value and suit
+        function getCardImageURL(value, suit) {
+            // Example: Assuming card images are stored in the "images/cards" folder
+            return `images/cards/${value}_of_${suit}.png`;
+        }
+
+        // Function to display cards with images
+        function displayCards(container, cards) {
+            container.innerHTML = '';
+            cards.forEach(card => {
+                const cardImage = document.createElement('img');
+                cardImage.src = getCardImageURL(card.value, card.suit);
+                container.appendChild(cardImage);
+            });
+        }
+
+        // Example game logic (you can replace this with your actual game logic)
+        document.addEventListener('DOMContentLoaded', function () {
+            const playerBalance = document.getElementById('playerBalance');
+            const betAmountInput = document.getElementById('betAmount');
+            const increaseBetButton = document.getElementById('increaseBet');
+            const decreaseBetButton = document.getElementById('decreaseBet');
+            const placeBetButton = document.getElementById('placeBet');
+            const playerCardsContainer = document.getElementById('playerCards');
+            const dealerCardsContainer = document.getElementById('dealerCards');
+            const gameMessage = document.getElementById('gameMessage');
+            const hitButton = document.getElementById('hitButton');
+            const standButton = document.getElementById('standButton');
+
+            // Sample game state (you can replace this with your actual game state)
+            let playerBalanceValue = 1000;
+            let playerHand = [{ value: '10', suit: 'hearts' }, { value: 'A', suit: 'spades' }];
+            let dealerHand = [{ value: '8', suit: 'diamonds' }, { value: 'Q', suit: 'clubs' }];
+
+            // Function to update the player's balance
+            function updateBalance() {
+                playerBalance.textContent = `$${playerBalanceValue.toFixed(2)}`;
+            }
+
+            // Function to handle placing a bet
+            placeBetButton.addEventListener('click', function () {
+                const betAmount = parseInt(betAmountInput.value);
+                if (betAmount >= 10 && betAmount <= playerBalanceValue) {
+                    // Handle placing the bet
+                    playerBalanceValue -= betAmount;
+                    updateBalance();
+                    // Implement your game logic here, e.g., dealing cards, calculating results, etc.
+                    // Update the player's and dealer's hands with cards (replace with your logic)
+                    displayCards(playerCardsContainer, playerHand);
+                    displayCards(dealerCardsContainer, dealerHand);
+                    // Enable Hit and Stand buttons
+                    hitButton.removeAttribute('disabled');
+                    standButton.removeAttribute('disabled');
+                    // Display game result or actions (replace with your logic)
+                    gameMessage.textContent = 'Player's turn. Choose Hit or Stand.';
+                } else {
+                    // Handle invalid bet amount
+                    gameMessage.textContent = 'Invalid bet amount.';
+                }
+            });
+
+            // Add your game logic for Hit and Stand buttons here
+            // ...
+        });
+    </script>
+</body>
+  </html>
+  
