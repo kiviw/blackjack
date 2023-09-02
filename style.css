@@ -1,1 +1,36 @@
+/* Default styles for all devices */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, p {
+    color: #333;
+}
+
+/* Styles for mobile devices (up to 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Styles for high-resolution (retina) displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Replace 'your-image@2x.png' with your high-resolution image file */
+    body {
+        background-image: url('your-image@2x.png');
+        background-size: cover;
+    }
+}
 
