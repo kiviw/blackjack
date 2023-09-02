@@ -1,0 +1,36 @@
+- root_folder/
+  - database_config/
+    - config.php (Database configuration file)
+  - game_logic/
+    - blackjack.php (Game logic for Blackjack)
+    - game.php (Game-related logic)
+  - admin_panel/
+    - register.php (User registration form)
+    - login.php (User login form)
+    - admin.php (Main admin panel)
+    - dashboard.php (Admin dashboard)
+    - user_management.php (User management)
+    - game_management.php (Game management)
+    - settings.php (Admin settings)
+    - logs.php (Admin logs)
+    - security.php (Security settings)
+    - backup.php (Backup management)
+    - logout.php (Admin logout)
+  - websocket/
+    - chat_server.php (WebSocket server for chat)
+  - templates/
+    - header.html (Header template)
+    - footer.html (Footer template)
+    - blackjack_table.html (Blackjack table template)
+    - chat_interface.html (Chat interface template)
+  - css/
+    - style.css (Main CSS file)
+  - images/
+    - cards/
+      - (card images go here)
+    - (other image assets)
+  - js/
+    - main.js (Main JavaScript file)
+  - uploads/
+    - (user uploads, if needed)
+  - (other folders and files as necessary)
